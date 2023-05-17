@@ -3,22 +3,22 @@ import * as Utils from './utils.js'
 // Categories Dropdown
 
 fetch('https://fakestoreapi.com/products/categories')
-            .then(res=>res.json())
-            .then(categories => {
+    .then(res => res.json())
+    .then(categories => {
 
-                for(const category of categories) {
+        for (const category of categories) {
 
-                    document.getElementById('categories-select').innerHTML += `
+            document.getElementById('categories-select').innerHTML += `
                         <option value="${category}">${category}</option>
                     `;
 
-                }
+        }
 
-            });
+    });
 
 // Products Showcase & Products Featured
 
-fetch('https://fakestoreapi.com/products?limit=9')
+fetch('https://fakestoreapi.com/products?limit=12')
     .then(res => res.json())
     .then(products => {
 
@@ -33,14 +33,18 @@ fetch('https://fakestoreapi.com/products?limit=9')
             document.getElementById('products-showcase').innerHTML += `
                 <div class="col-sm-12 col-md-4 mb-4">
                     <div class="card">
+                    <div class="d-flex justify-content-center align-items-center" style="height: 200px;">
                         <a href="${href}">
                             <img 
                                 src="${product.image}" 
                                 class="card-img-top d-block m-auto h-auto w-auto p-3 products-featured-img"
                             >
                         </a>
+                        </div>
                         <div class="card-body">
-                            <h5 class="card-title"><a href="${href}" class="text-decoration-none">${product.title}</a></h5>
+                            <a href="${href}" class="text-decoration-none">    
+                                <h5 class="card-title text-truncate">${product.title}</h5>
+                            </a>
                             ${starsHTML}
                             <p class="fs-5 fw-bold">${price}</p>
                         </div>
@@ -54,11 +58,16 @@ fetch('https://fakestoreapi.com/products?limit=9')
                         <div class="card">
                             <div class="row card-body">
                                 <div class="col-sm-4">
-                                    <a href="${href}"><img src="${product.image}" class="products-sidebar-img"></a>
+                                    <div class="d-flex justify-content-center align-items-center" style="height: 100px;">
+                                        <a href="${href}">
+                                            <img src="${product.image}" class="products-sidebar-img">
+                                        </a>
+                                    </div>
                                 </div>
                                 <div class="col-sm-8">
-                                    <h6 class="card-title"><a href="${href}" class="text-decoration-none">${product.title}</a>
-                                    </h6>
+                                    <a href="${href}" class="text-decoration-none">
+                                        <h6 class="card-title text-truncate">${product.title}</h6>
+                                    </a>
                                     ${starsHTML}
                                     <h6>${price}</h6>
                                 </div>

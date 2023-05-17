@@ -49,8 +49,8 @@ fetch('https://fakestoreapi.com/products/')
                 </div>
                 <div class="col-lg-9 col-md-12">
                     <span class="bg-success text-uppercase text-white fw-bold p-1"> ${product.category}</span>
-                    <a href=${Utils.getProductHref(product.id)}>
-                        <h2 class="mt-3 mb-2">${product.title}</h2>
+                    <a href=${Utils.getProductHref(product.id)} class="text-decoration-none">
+                        <h2 class="mt-3 mb-2 text-truncate">${product.title}</h2>
                     </a>
                     <p class="mb-2">${product.description}</p>
                     <p class="mb-2">${Utils.getStarsHTML(product.rating.rate)}</p>
