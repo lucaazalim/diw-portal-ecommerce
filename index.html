@@ -2,17 +2,45 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tech</title>
 
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
+
+    <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/86ad24bcb9.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="style/index.css">
+
+    <script src="script/script.js"></script>
+
+</head>
+
+<body>
+
+    <!-- Notificação -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true"
+            data-bs-autohide="false">
+            <div class="toast-header bg-success" style="color:white;">
+                <strong class="me-auto"><i class="fa-solid fa-user me-2"></i>Informações</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Fechar"></button>
+            </div>
+            <div class="toast-body">
+                <b>Nome:</b> Luca Ferrari Azalim<br>
+                <b>Curso:</b> Engenharia de Software<br>
+                <b>Nº de Matrícula:</b> 818574<br>
+            </div>
+        </div>
+    </div>
 
     <script>
         window.addEventListener('load', function () {
@@ -25,72 +53,8 @@
         });
     </script>
 
-</head>
+    <div id="header"></div>
 
-<body>
-
-    <!-- Notificação -->
-    <div class="toast-container position-fixed bottom-0 end-0 p-3">
-        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
-            <div class="toast-header bg-success" style="color:white;">
-                <strong class="me-auto"><i class="fa-solid fa-cart-shopping"></i> Tech.com</strong>
-                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Fechar"></button>
-            </div>
-            <div class="toast-body">
-                Use o cupom <strong>TECH15</strong> e ganhe <strong>15% de desconto</strong> em sua primeira compra!
-            </div>
-        </div>
-    </div>
-
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-xl navbar-light bg-light">
-        <div class="container">
-
-            <a class="navbar-brand" href="#">
-                <img src="img/logo.png" alt="Logo" class="d-inline-block align-text-top">
-            </a>
-
-            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-
-                <div class="navbar-nav">
-                    <a href="#" class="nav-item nav-link active"
-                        style="border-bottom: 3px solid; border-color: green;">Início</a>
-                    <a href="#" class="nav-item nav-link">Login</a>
-                    <a href="#" class="nav-item nav-link">Conta</a>
-                    <a href="#" class="nav-item nav-link">Rastrear</a>
-                </div>
-
-                <div class="navbar-nav ms-auto gap-2">
-
-                    <span class="d-none d-xl-block d-sm-block bg-secondary bg-opacity-25"
-                        style="font-size: 12px; padding: 5px 15px; border-radius: 5px; text-align: center;">Até
-                        <b>30</b> dias para devolução<br>Suporte 24h: <b>(31) 91234-5678</b></span>
-
-                    <form class="d-flex" role="search">
-                        <div class="input-group">
-                            <input class="form-control" type="search" placeholder="Buscar produto">
-                            <button class="btn btn-success" type="submit"><i
-                                    class="fa-solid fa-magnifying-glass"></i></button>
-                        </div>
-                    </form>
-
-                    <button class="btn btn-success position-relative" type="submit">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                            3
-                        </span>
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-    </nav>
     <!-- Buscador de Produtos & Carrossel -->
     <section class="container p-4">
         <div class="row">
@@ -98,38 +62,27 @@
             <div class="col-lg-12 col-xl-3 bg-light p-4">
                 <h2>Buscar produto</h2>
                 <p>Encontre o produto que você está procurando hoje!</p>
-                <form>
+                <form role="search" action="/pesquisa.html" method="GET">
                     <div class="mb-3">
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Tipo</option>
-                            <option value="1">Teclado</option>
-                            <option value="2">Mouse</option>
-                            <option value="3">Headsets</option>
-                            <option value="3">Computadores Gamer</option>
+                        <select id="categories-select" class="form-select" name="category">
+                            <option value="" selected>Categoria</option>
                         </select>
                     </div>
                     <div class="mb-3">
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Marca</option>
-                            <option value="1">Samsung</option>
-                            <option value="2">Apple</option>
-                            <option value="3">Razer</option>
-                            <option value="4">HyperX</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Categoria</option>
-                            <option value="1">Computadores</option>
-                            <option value="2">Periféricos</option>
-                            <option value="3">Smartphones</option>
+                        <select id="categories-select" class="form-select" name="min-rating">
+                            <option value="" selected>Classificação mínima</option>
+                            <option value="1">★</option>
+                            <option value="2">★★</option>
+                            <option value="3">★★★</option>
+                            <option value="4">★★★★</option>
+                            <option value="5">★★★★★</option>
                         </select>
                     </div>
                     <div class="mb-3 input-group">
                         <span class="input-group-text">R$</span>
-                        <input type="text" aria-label="First name" class="form-control" placeholder="0,00">
+                        <input type="text" class="form-control" placeholder="0,00" name="min-price">
                         <span class="input-group-text">R$</span>
-                        <input type="text" aria-label="Last name" class="form-control" placeholder="0,00">
+                        <input type="text" class="form-control" placeholder="0,00" name="max-price">
                     </div>
                     <div class="d-grid gap-2">
                         <button type="submit" class="btn btn-success"><i class="fa-solid fa-magnifying-glass"></i>
@@ -173,203 +126,19 @@
             </div>
         </div>
     </section>
-    <!-- Vitrine de Produtos & Sidebar de Produtos -->
+    <!-- Products Showcase & Products Featured -->
     <section class="container p-4">
         <div class="row">
-            <!-- Vitrine de Produtos -->
+            <!-- Products Showcase -->
             <div class="col-md-12 col-lg-8 bg-light p-4">
-                <div class="row">
-                    <!-- Produto #1 -->
-                    <div class="col-sm-12 col-md-4 mb-4">
-                        <div class="card">
-                            <a href="#"><img src="img/produtos/computador.png" class="card-img-top"></a>
-                            <div class="card-body">
-                                <h5 class="card-title"><a href="#" class="text-decoration-none">PC Gamer</a></h5>
-                                <span class="text-warning">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                </span>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                (5)
-                                <p class="fs-5 fw-bold">R$ 3.750,00</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Produto #2 -->
-                    <div class="col-sm-12 col-md-4 mb-4">
-                        <div class="card">
-                            <a href="#"><img src="img/produtos/headset.png" class="card-img-top"></a>
-                            <div class="card-body">
-                                <h5 class="card-title"><a href="#" class="text-decoration-none">Headset Gamer</a></h5>
-                                <span class="text-warning">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                </span>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                (5)
-                                <p class="fs-5 fw-bold">R$ 394,50</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Produto #3 -->
-                    <div class="col-sm-12 col-md-4 mb-4">
-                        <div class="card">
-                            <a href="#"><img src="img/produtos/iphone.png" class="card-img-top"></a>
-                            <div class="card-body">
-                                <h5 class="card-title"><a href="#" class="text-decoration-none">iPhone Vermelho</a></h5>
-                                <span class="text-warning">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                </span>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                (5)
-                                <p class="fs-5 fw-bold">R$ 6.550,90</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Produto #4 -->
-                    <div class="col-sm-12 col-md-4 mb-4">
-                        <div class="card">
-                            <a href="#"><img src="img/produtos/monitor.png" class="card-img-top"></a>
-                            <div class="card-body">
-                                <h5 class="card-title"><a href="#" class="text-decoration-none">Monitor Gamer</a></h5>
-                                <span class="text-warning">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                </span>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                (5)
-                                <p class="fs-5 fw-bold">R$ 1.200,50</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Produto #5 -->
-                    <div class="col-sm-12 col-md-4 mb-4">
-                        <div class="card">
-                            <a href="#"><img src="img/produtos/mouse.png" class="card-img-top"></a>
-                            <div class="card-body">
-                                <h5 class="card-title"><a href="#" class="text-decoration-none">Mouse Gamer RGB</a></h5>
-                                <span class="text-warning">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                </span>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                (5)
-                                <p class="fs-5 fw-bold">R$ 340,00</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Produto #6 -->
-                    <div class="col-sm-12 col-md-4 mb-4">
-                        <div class="card">
-                            <a href="#"><img src="img/produtos/teclado.png" class="card-img-top"></a>
-                            <div class="card-body">
-                                <h5 class="card-title"><a href="#" class="text-decoration-none">Teclado Gamer RGB</a>
-                                </h5>
-                                <span class="text-warning">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                </span>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                (5)
-                                <p class="fs-5 fw-bold">R$ 594,50</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div id="products-showcase" class="row"></div>
             </div>
             <!-- Sidebar -->
             <aside class="col-md-4 d-none d-lg-block bg-secondary bg-opacity-25 p-4">
                 <section>
-                    <!-- Produtos em Destaque -->
+                    <!-- Products Featured -->
                     <h5>Produtos em destaque</h5>
-                    <!-- Produto #1 -->
-                    <div class="row">
-                        <div class="card">
-                            <div class="row card-body">
-                                <img class="col-sm-6" src="img/produtos/computador.png" alt="sans" />
-                                <div class="col-sm-6">
-                                    <h6 class="card-title"><a href="#" class="text-decoration-none">PC Gamer</a>
-                                    </h6>
-                                    <span class="text-warning" style="font-size: 12px;">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </span>
-                                    <span style="font-size: 12px;">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </span>
-                                    <span style="font-size: 12px;">(5)</span>
-                                    <h6>R$ 3.750,00</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-                    <!-- Produto #2 -->
-                    <div class="row">
-                        <div class="card">
-                            <div class="row card-body">
-                                <img class="col-sm-6" src="img/produtos/headset.png" alt="sans" />
-                                <div class="col-sm-6">
-                                    <h6 class="card-title"><a href="#" class="text-decoration-none">Headset Gamer</a>
-                                    </h6>
-                                    <span class="text-warning" style="font-size: 12px;">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </span>
-                                    <span style="font-size: 12px;">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </span>
-                                    <span style="font-size: 12px;">(5)</span>
-                                    <h6>R$ 394,50</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-                    <!-- Produto #3 -->
-                    <div class="row">
-                        <div class="card">
-                            <div class="row card-body">
-                                <img class="col-sm-6" src="img/produtos/iphone.png" alt="sans" />
-                                <div class="col-sm-6">
-                                    <h6 class="card-title"><a href="#" class="text-decoration-none">iPhone Vermelho</a>
-                                    </h6>
-                                    <span class="text-warning" style="font-size: 12px;">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </span>
-                                    <span style="font-size: 12px;">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </span>
-                                    <span style="font-size: 12px;">(5)</span>
-                                    <h6>R$ 6.550,90</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="d-grid gap-2">
-                        <button type="button" class="btn btn-secondary">Ver mais</button>
-                    </div>
+                    <div id="products-featured"></div>
                 </section>
                 <!-- Newsletter -->
                 <br>
@@ -388,83 +157,12 @@
                 </section>
             </aside>
     </section>
-    <!-- Footer -->
-    <footer class="bg-light text-muted">
-        <section class="p-1">
-            <div class="container text-center text-md-start mt-5">
-                <div class="row">
-                    <!-- Métodos de Pagamento -->
-                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                        <h6 class="text-uppercase fw-bold mb-4">
-                            <i class="fas fa-gem me-3"></i>Métodos de Pagamento
-                        </h6>
-                        <div class="fs-1">
-                            <i class="fa-solid fa-credit-card"></i>
-                            <i class="fa-solid fa-barcode"></i>
-                            <i class="fa-brands fa-pix"></i>
-                        </div>
-                        <div class="fs-1">
-                            <i class="fa-brands fa-cc-mastercard"></i>
-                            <i class="fa-brands fa-cc-visa"></i>
-                            <i class="fa-brands fa-cc-amex"></i>
-                        </div>
-                    </div>
-                    <!-- Links Úteis -->
-                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                        <h6 class="text-uppercase fw-bold mb-4">
-                            Links Úteis
-                        </h6>
-                        <p>
-                            <a href="#" class="text-reset">Ajuda</a>
-                        </p>
-                        <p>
-                            <a href="#" class="text-reset">Privacidade</a>
-                        </p>
-                        <p>
-                            <a href="#" class="text-reset">Devolução e trocas</a>
-                        </p>
-                        <p>
-                            <a href="#" class="text-reset">Termos de serviço</a>
-                        </p>
-                    </div>
-                    <!-- Redes Sociais -->
-                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                        <h6 class="text-uppercase fw-bold mb-4">
-                            Redes Sociais
-                        </h6>
-                        <div class="fs-1">
-                            <a href="#" class="text-decoration-none text-reset">
-                                <i class="fa-brands fa-square-instagram"></i>
-                            </a>
-                            <a href="#" class="text-decoration-none text-reset">
-                                <i class="fa-brands fa-square-twitter"></i>
-                            </a>
-                            <a href="#" class="text-decoration-none text-reset">
-                                <i class="fa-brands fa-square-facebook"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Contato -->
-                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                        <h6 class="text-uppercase fw-bold mb-4">Contato</h6>
-                        <p><i class="fas fa-home me-3"></i>Belo Horizonte, MG - Brasil</p>
-                        <p>
-                            <i class="fas fa-envelope me-3"></i>
-                            contato@tech.com
-                        </p>
-                        <p><i class="fas fa-phone me-3"></i>(31) 91234-5678</p>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Copyright -->
-        <div class="text-center p-4 bg-dark bg-opacity-25">
-            © 2023 Copyright:
-            <a class="text-reset fw-bold" href="#">Tech.com</a>
-        </div>
-        <!-- Copyright -->
-    </footer>
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <script type="module" src="script/index.js"></script>
+
 </body>
 
 </html>

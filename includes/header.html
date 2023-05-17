@@ -1,0 +1,51 @@
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-xl navbar-light bg-light">
+        <div class="container">
+
+            <a class="navbar-brand" href="/">
+                <img src="img/logo.png" alt="Logo" class="d-inline-block align-text-top">
+            </a>
+
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+
+                <div class="navbar-nav">
+                    <a href="/" class="nav-item nav-link active"
+                        style="border-bottom: 3px solid; border-color: green;">Início</a>
+                    <a href="#" class="nav-item nav-link">Login</a>
+                    <a href="#" class="nav-item nav-link">Conta</a>
+                    <a href="#" class="nav-item nav-link">Rastrear</a>
+                </div>
+
+                <div class="navbar-nav ms-auto gap-2">
+
+                    <span class="d-none d-xl-block d-sm-block bg-secondary bg-opacity-25"
+                        style="font-size: 12px; padding: 5px 15px; border-radius: 5px; text-align: center;">Até
+                        <b>30</b> dias para devolução<br>Suporte 24h: <b>(31) 91234-5678</b></span>
+
+                    <!-- Search -->
+                    <form class="d-flex" role="search" action="/pesquisa.html" method="GET">
+                        <div class="input-group">
+                            <input class="form-control" type="search" name="title" placeholder="Buscar produto">
+                            <button class="btn btn-success" type="submit"><i
+                                    class="fa-solid fa-magnifying-glass"></i></button>
+                        </div>
+                    </form>
+
+                    <!-- Cart -->
+                    <button class="btn btn-success position-relative" type="submit">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            3
+                        </span>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+    </nav>
