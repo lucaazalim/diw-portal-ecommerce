@@ -1,5 +1,5 @@
 export function getProductHref(id) {
-    return `/detalhes.html?id=${id}`;
+    return `detalhes.html?id=${id}`;
 }
 
 export function getStarsHTML(rate) {
