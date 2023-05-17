@@ -3,7 +3,7 @@ import * as Utils from './utils.js'
 var searchParams = new URLSearchParams(window.location.search);
 var id = searchParams.get('id');
 
-fetch('https://fakestoreapi.com/products/' + id)
+fetch(Utils.API_URL + '/products/' + id)
     .then(res => res.json())
     .then(product => {
 

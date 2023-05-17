@@ -1,3 +1,5 @@
+export const API_URL = 'https://fakestoreapi.com'; //'http://diwserver.vps.webdock.cloud:8765'
+
 export function getProductHref(id) {
     return `detalhes.html?id=${id}`;
 }

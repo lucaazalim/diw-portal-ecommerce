@@ -7,17 +7,19 @@ let minRatingParam = searchParams.get('min-rating')
 let minPriceParam = searchParams.get('min-price');
 let maxPriceParam = searchParams.get('max-price');
 
-fetch('https://fakestoreapi.com/products/')
+let url = Utils.API_URL + '/products';
+
+if(categoryParam) {
+    url += '/category/' + encodeURIComponent(categoryParam);
+}
+
+fetch(url)
     .then(res => res.json())
     .then(products => {
 
         products = products.filter(product => {
 
             if (titleParam && !Utils.normalize(product.title).includes(Utils.normalize(titleParam))) {
-                return false;
-            }
-
-            if (categoryParam && product.category != categoryParam) {
                 return false;
             }
 
@@ -37,7 +39,7 @@ fetch('https://fakestoreapi.com/products/')
 
         });
 
-        document.getElementById('results').innerHTML += `<p class="fw-bold text-center">${products.length} produtos encontrados...</p><hr>`
+        document.getElementById('results').innerHTML = `<p class="fw-bold text-center">${products.length} produtos encontrados...</p><hr>`
 
         for (const product of products) {
 

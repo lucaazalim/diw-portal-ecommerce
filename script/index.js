@@ -2,7 +2,7 @@ import * as Utils from './utils.js'
 
 // Categories Dropdown
 
-fetch('https://fakestoreapi.com/products/categories')
+fetch(Utils.API_URL + '/products/categories')
     .then(res => res.json())
     .then(categories => {
 
@@ -18,11 +18,16 @@ fetch('https://fakestoreapi.com/products/categories')
 
 // Products Showcase & Products Featured
 
-fetch('https://fakestoreapi.com/products?limit=12')
+fetch(Utils.API_URL + '/products?limit=12')
     .then(res => res.json())
     .then(products => {
 
+        console.log(products);
+
         let sidebarLimit = 6;
+        let productsShowcase = document.getElementById('products-showcase');
+        
+        productsShowcase.innerHTML = "";
 
         for (const product of products) {
 
@@ -30,7 +35,7 @@ fetch('https://fakestoreapi.com/products?limit=12')
             let starsHTML = Utils.getStarsHTML(product.rating.rate);
             let price = Utils.getFormattedPrice(product.price);
 
-            document.getElementById('products-showcase').innerHTML += `
+            productsShowcase.innerHTML += `
                 <div class="col-sm-12 col-md-4 mb-4">
                     <div class="card">
                     <div class="d-flex justify-content-center align-items-center" style="height: 200px;">
@@ -86,5 +91,3 @@ fetch('https://fakestoreapi.com/products?limit=12')
         }
 
     });
-
-// Products Featured
