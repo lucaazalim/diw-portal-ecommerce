@@ -45,8 +45,14 @@ fetch('https://fakestoreapi.com/products?limit=12')
                             <a href="${href}" class="text-decoration-none">    
                                 <h5 class="card-title text-truncate">${product.title}</h5>
                             </a>
+                            <p class="text-truncate">${product.description}</p>
                             ${starsHTML}
                             <p class="fs-5 fw-bold">${price}</p>
+                            <a href="${href}" class="text-decoration-none">
+                                <div class="d-grid">
+                                        <button class="btn btn-success text-uppercase fw-bold">Detalhes</button>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>`;
@@ -54,8 +60,7 @@ fetch('https://fakestoreapi.com/products?limit=12')
             if (sidebarLimit > 0) {
 
                 document.getElementById('products-featured').innerHTML += `
-                    <div class="row">
-                        <div class="card">
+                        <div class="card mb-2">
                             <div class="row card-body">
                                 <div class="col-sm-4">
                                     <div class="d-flex justify-content-center align-items-center" style="height: 100px;">
@@ -72,9 +77,7 @@ fetch('https://fakestoreapi.com/products?limit=12')
                                     <h6>${price}</h6>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <br>`;
+                        </div>`;
 
                 sidebarLimit--;
 
