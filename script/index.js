@@ -26,7 +26,7 @@ fetch(Utils.API_URL + '/products?limit=12')
 
         let sidebarLimit = 6;
         let productsShowcase = document.getElementById('products-showcase');
-        
+
         productsShowcase.innerHTML = "";
 
         for (const product of products) {
@@ -51,8 +51,10 @@ fetch(Utils.API_URL + '/products?limit=12')
                                 <h5 class="card-title text-truncate">${product.title}</h5>
                             </a>
                             <p class="text-truncate">${product.description}</p>
-                            ${starsHTML}
-                            <p class="fs-5 fw-bold">${price}</p>
+                            <div class="text-center">
+                                ${starsHTML}
+                                <p class="fs-5 fw-bold">${price}</p>
+                            </div>
                             <a href="${href}" class="text-decoration-none">
                                 <div class="d-grid">
                                         <button class="btn btn-success text-uppercase fw-bold">Detalhes</button>
